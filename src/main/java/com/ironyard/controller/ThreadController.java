@@ -1,5 +1,6 @@
 package com.ironyard.controller;
 
+import com.ironyard.data.Thread;
 import com.ironyard.repo.ThreadRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,14 +18,18 @@ public class ThreadController {
     private ThreadRepo userThreadRepo;
 
     @RequestMapping(path ="/secure/threadView/createThread",method=RequestMethod.GET)
-    public String createThread(Model data, @RequestParam String threadName, @RequestParam String threadDescription) {
-        Thread createdThread = new Thread(threadName , threadDescription);
+    public String createThread(Model data, @RequestParam (name = "nameOfThread") String threadName,
+                               @RequestParam (name ="fullDescription" ) String threadDescription) {
+
+        Thread createdThread = new Thread();
+        createdThread.setThreadName(threadName);
+        createdThread.setThreadDescription(threadDescription);
         userThreadRepo.save(createdThread);
+        return "redirect:/secure/threadView";
     }
-    return "/secure/threadView";
 
 
-    }
+
 
 
     @RequestMapping(path = "/secure/threadView")
@@ -32,7 +37,7 @@ public class ThreadController {
         String destination = "home";
 
         Iterable threadView = userThreadRepo.findAll();
-        data.addAttribute("threadList;", threadView);
+        data.addAttribute("threadList", threadView);
         return destination;
     }
 }

@@ -58,7 +58,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="/secure/threadView">Home</a></li>
-                <li class="active"><a href="#">Create Thread</a></li>
+                <li><a href="/secure/createThread.jsp">Create Thread</a></li>
                 <li><a href="/secure/users.jsp">Board Users</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -68,14 +68,32 @@
     </div>
 </nav>
 
-<form action="/secure/threadView/createThread" method="GET" role="form">
+   <div>
+        <c:forEach items="${threadList}" var="viewThreads">
+        <h4 class="media-heading">Welcome to <c:out value="${viewThreads.threadName}"/> post below!</h4>
+        </c:forEach>
+    </div>
+
+    <div class="media">
+
+            <c:forEach items="${post}" var="showPost">
+                <div class="media-body">
+                    <h4 class="media-heading"><c:out value="${showPost.usernameOfPoster}"/></h4>
+                    <p><c:out value="${showPost.postContent}"/></p>
+                    <h6><c:out value="${showPost.timeOfPost}"/></h6>
+
+                </div>
+            </c:forEach>
+    </div>
+
+<form action="/secure/postView/createNewPost" method="POST" role="form">
     <div class="form-group">
-        <label for="threadName">Thread Name:</label>
-        <input type="text" class="form-control" id="threadName" name="nameOfThread" value="<c:out value="${threadView.threadName}"/>">
+        <label for="postContent">Post</label>
+        <textarea class="form-control" rows="3" id="postContent" name="postContent"></textarea>
     </div>
     <div class="form-group">
-        <label for="threadDescription">Thread Description:</label>
-        <textarea class="form-control" rows="2" id="threadDescription" name="fullDescription"value="<c:out value="${threadView.threadDescription}"/>"></textarea>
+        <label for="timeOfPost">Date and Time of Post:</label>
+        <input type="date" class="form-control"  id="timeOfPost" name="timeOfPost">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>

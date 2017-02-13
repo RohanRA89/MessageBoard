@@ -38,9 +38,6 @@ public class Thread {
         this.threadDescription = threadDescription;
     }
 
-    public Thread(String threadName, String threadDescription) {
-        this.threadName = threadName;
-        this.threadDescription = threadDescription;
-    }
+
 
 }

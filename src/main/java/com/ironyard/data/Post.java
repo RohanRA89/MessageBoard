@@ -14,4 +14,39 @@ public class Post {
     private long id;
     private String postContent;
     private String timeOfPost;
+    private String usernameOfPoster;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getPostContent() {
+        return postContent;
+    }
+
+    public void setPostContent(String postContent) {
+        this.postContent = postContent;
+    }
+
+    public String getTimeOfPost() {
+        return timeOfPost;
+    }
+
+    public void setTimeOfPost(String timeOfPost) {
+        this.timeOfPost = timeOfPost;
+    }
+
+    public String getUsernameOfPoster() {
+        return usernameOfPoster;
+    }
+
+    public void setUsernameOfPoster(String usernameOfPoster) {
+        this.usernameOfPoster = usernameOfPoster;
+    }
+
+
 }

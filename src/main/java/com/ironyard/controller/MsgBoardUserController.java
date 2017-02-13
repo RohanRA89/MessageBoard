@@ -54,18 +54,4 @@ public class MsgBoardUserController {
         return loginDestination;
     }
 
-//    @RequestMapping(path = "/secure/movies")
-//    public String listMovies(Model xyz) {
-//        String destination = "home";
-//
-//
-//        Iterable found = movieRepo.findAll();
-//
-//
-//        // put list into model
-//        xyz.addAttribute("mList", found);
-//
-//        // go to jsp
-//        return destination;
-//    }
 }

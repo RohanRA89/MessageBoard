@@ -68,14 +68,14 @@
     </div>
 </nav>
 
-<div class="row">
+
+<div class="media">
 <c:forEach items="${threadList}" var="viewThreads">
-    <h2><c:out value="${viewThreads.threadName}"/></h2>
-    <h4><p><c:out value="${viewThreads.threadDescription}"/></p></h4>
+    <div class="media-body">
+        <h4 class="media-heading"><a href="/secure/createPost.jsp"><c:out value="${viewThreads.threadName}"/></a></h4>
+        <p><c:out value="${viewThreads.threadDescription}"/></p>
 </c:forEach>
 </div>
-
-
 
 
 
