@@ -70,14 +70,50 @@
 
 
 <div class="media">
-<c:forEach items="${threadList}" var="viewThreads">
+<c:forEach items="${threadList.iterator()}" var="viewThreads">
     <div class="media-body">
         <h4 class="media-heading"><a href="/secure/createPost.jsp"><c:out value="${viewThreads.threadName}"/></a></h4>
         <p><c:out value="${viewThreads.threadDescription}"/></p>
 </c:forEach>
 </div>
 
+    <div class="row">
+        <div class="col-sm-4 col-xs-4" >
+            <c:if test="${threadList.hasPrevious()}">
+                <div class="pull-left"><a href="/secure/threadView?page=<c:out value="${threadList.number - 1}"/>&size=<c:out value="${threadList.size}"/>"> Previous
+                    Page</a></div>
+            </c:if>
+        </div>
 
+        <div class="col-sm-4 col-xs-4">
+            Page <c:out value="${threadList.number+1}"/> of <c:out value="${threadList.totalPages}"/>, Total Records Found:<c:out value="${threadList.totalElements}"/>
+            <div>
+                <form method="post" action="/secure/threadView" id="sizeform">
+                    Results Per Page:
+                    <select name="size" onchange="sizeform.submit();">
+                        <option value="3" <c:out value="${threadList.size==3?'selected':''}"/> >
+                            3
+                        </option>
+                        <option value="6" <c:out value="${threadList.size==6?'selected':''}"/> >
+                            6
+                        </option>
+                        <option value="9" <c:out value="${threadList.size==9?'selected':''}"/> >
+                            9
+                        </option>
+                    </select>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4 col-xs-4">
+
+            <c:if test="${threadList.hasNext()}">
+                <div class="pull-right"><a href="/secure/threadView?page=<c:out value="${threadList.number + 1}"/>&size=<c:out value="${threadList.size}"/> "> Next
+                    Page</a></div>
+            </c:if>
+        </div>
+    </div>
 
 
 <footer class="container-fluid text-center">

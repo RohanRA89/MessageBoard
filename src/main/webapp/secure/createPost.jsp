@@ -78,9 +78,9 @@
 
             <c:forEach items="${post}" var="showPost">
                 <div class="media-body">
-                    <h4 class="media-heading"><c:out value="${showPost.usernameOfPoster}"/></h4>
+                    <h4 style="color: red" class="media-heading"><c:out value="${showPost.usernameOfPoster}"/></h4>
                     <p><c:out value="${showPost.postContent}"/></p>
-                    <h6><c:out value="${showPost.timeOfPost}"/></h6>
+                    <h6 style="color: greenyellow"><c:out value="${showPost.timeOfPost}"/></h6>
 
                 </div>
             </c:forEach>
