@@ -76,6 +76,7 @@
         <label for="createPassword" class="sr-only">Create Your Password</label>
         <input type="password" id="createPassword" class="form-control" placeholder="Password" required name="password">
 
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
     </form>
 

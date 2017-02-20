@@ -59,7 +59,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="/secure/createThread.jsp">Create Thread</a></li>
-                <li><a href="/secure/users.jsp">Board Users</a></li>
+                <li><a href="/secure/users">Board Users</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/secure/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>

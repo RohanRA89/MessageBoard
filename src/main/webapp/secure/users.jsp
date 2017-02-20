@@ -85,7 +85,22 @@
     </div>
 </nav>
 
-
+<div class="container">
+    <div class="row">
+        <c:forEach items="${listUsers}" var="aUser">
+        <div class="card col-sm-12 col-md-4">
+            <img class="card-img-top" width="50" src="/ourCoolUploadedFiles/<c:out value="${aUser.profileFileName}"/>" alt="Card image cap">
+            <h4 class="card-title"><strong>Name: </strong><c:out value="${aUser.name}"/></h4>
+            <div class="card-block">
+                <p class="card-text"><strong>Display Name: </strong><c:out value="${aUser.displayName}"/></p>
+                <p class="card-text"><small class ="text"><strong>Password: </strong></small><small class="text-muted"><c:out value="${aUser.password}"/></small></p>
+                <p class="card-text"><a class="btn btn-info" href="/secure/user/select?id=<c:out value="${aUser.id}"/>">Edit</a> </p>
+                <p class="card-text"><a class="btn btn-danger" href="/secure/user/delete?id=<c:out value="${aUser.id}"/>">Delete</a> </p>
+            </div>
+        </div>
+        </c:forEach>
+    </div>
+</div>
 
 <footer class="container-fluid text-center">
     <p>Welcome To Ayub's Web App</p>

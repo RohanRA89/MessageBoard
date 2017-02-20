@@ -1,5 +1,8 @@
 package com.ironyard.data;
 
+import com.ironyard.dto.FromForm;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +18,35 @@ public class MsgBoardUser {
     private String name;
     private String displayName;
     private String password;
+    private String profileFileName;
 
+    public MsgBoardUser(){
+
+    }
+
+//    public MsgBoardUser(FromForm dataFromForm, String profileFileName){
+//        this.id = dataFromForm.getId();
+//        this.name = dataFromForm.getName();
+//        this.displayName = dataFromForm.getDisplayName();
+//        this.password = dataFromForm.getPassword();
+//        this.profileFileName = profileFileName;
+//    }
+//
+//    public MsgBoardUser(FromForm dataFromForm){
+//        this.id = dataFromForm.getId();
+//        this.name = dataFromForm.getName();
+//        this.displayName = dataFromForm.getDisplayName();
+//        this.password = dataFromForm.getPassword();
+//    }
+
+
+    public String getProfileFileName() {
+        return profileFileName;
+    }
+
+    public void setProfileFileName(String profileFileName) {
+        this.profileFileName = profileFileName;
+    }
 
     public long getId() {
         return id;

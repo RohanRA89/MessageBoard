@@ -57,9 +57,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="/secure/threadView">Home</a></li>
-                <li class="active"><a href="#">Create Thread</a></li>
-                <li><a href="/secure/users">Board Users</a></li>
+                <li><a href="/secure/movies">Home</a></li>
+                <li><a href="/secure/create.jsp">Create</a></li>
+                <li><a href="/secure/users">Users</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/secure/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -68,17 +68,44 @@
     </div>
 </nav>
 
-<form action="/secure/threadView/createThread" method="GET" role="form">
+<%--<div class="container">--%>
+<%--<c:if test="${succes_movie_create_msg != null}">--%>
+<%--<div class="alert alert-success">--%>
+<%--<c:out value="${succes_movie_create_msg}"/>--%>
+<%--</div>--%>
+<%--</c:if>--%>
+<form action="/secure/editUser/update" enctype="multipart/form-data" method="POST" role="form">
+    <c:forEach items="${name}"/>
+    <c:forEach items="${displayName}"/>
+    <c:forEach items="${password}"/>
     <div class="form-group">
-        <label for="threadName">Thread Name:</label>
-        <input type="text" class="form-control" id="threadName" name="nameOfThread" value="<c:out value="${threadView.threadName}"/>">
+        <label for="username">Update Name:</label>
+        <input type="text" class="form-group" id="username" name="name" value="<c:out value="${name}"/>">
+    </div>
+
+    <div class="form-group">
+        <label for="displayName">Update Display Name:</label>
+        <input type="text" class="form-group" id="displayName" name="displayName" value="<c:out value="${displayName}"/>">
     </div>
     <div class="form-group">
-        <label for="threadDescription">Thread Description:</label>
-        <textarea class="form-control" rows="2" id="threadDescription" name="fullDescription"value="<c:out value="${threadView.threadDescription}"/>"></textarea>
+        <label for="password">Update Password:</label>
+        <input type="text" class="form-group" id="password" name="password" value="<c:out value="${password}"/>">
+    </div>
+    <div class="form-group">
+        <label for="userImage">Add/Change Display Image:</label>
+        <input type="file" class="form-group" id="userImage" name="userImage">
+    </div>
+
+    <div class="form-group">
+        <label for="id"></label>
+        <input type="hidden" class="form-group" id="id" name="id" value="<c:out value="${userID}"/>">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
+
+
+
+
 
 
 <footer class="container-fluid text-center">
