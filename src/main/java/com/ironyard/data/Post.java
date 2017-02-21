@@ -16,6 +16,9 @@ public class Post {
     private String timeOfPost;
     private String usernameOfPoster;
 
+    public Post() {
+    }
+
     public long getId() {
         return id;
     }

@@ -1,4 +1,4 @@
-package com.ironyard.controller;
+package com.ironyard.controller.mvc;
 
 import com.ironyard.data.Thread;
 import com.ironyard.repo.ThreadRepo;

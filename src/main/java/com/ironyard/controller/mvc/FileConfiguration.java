@@ -1,4 +1,4 @@
-package com.ironyard.controller;
+package com.ironyard.controller.mvc;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;

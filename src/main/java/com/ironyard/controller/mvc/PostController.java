@@ -1,4 +1,4 @@
-package com.ironyard.controller;
+package com.ironyard.controller.mvc;
 
 import com.ironyard.data.MsgBoardUser;
 import com.ironyard.data.Post;
