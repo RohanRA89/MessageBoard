@@ -3,9 +3,8 @@ package com.ironyard.data;
 import com.ironyard.dto.FromForm;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by rohanayub on 2/9/17.
@@ -19,25 +18,22 @@ public class MsgBoardUser {
     private String displayName;
     private String password;
     private String profileFileName;
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private List<Permissions> permissions;
+
+    public List<Permissions> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permissions> permissions) {
+        this.permissions = permissions;
+    }
+
+
 
     public MsgBoardUser(){
 
     }
-
-//    public MsgBoardUser(FromForm dataFromForm, String profileFileName){
-//        this.id = dataFromForm.getId();
-//        this.name = dataFromForm.getName();
-//        this.displayName = dataFromForm.getDisplayName();
-//        this.password = dataFromForm.getPassword();
-//        this.profileFileName = profileFileName;
-//    }
-//
-//    public MsgBoardUser(FromForm dataFromForm){
-//        this.id = dataFromForm.getId();
-//        this.name = dataFromForm.getName();
-//        this.displayName = dataFromForm.getDisplayName();
-//        this.password = dataFromForm.getPassword();
-//    }
 
 
     public String getProfileFileName() {
